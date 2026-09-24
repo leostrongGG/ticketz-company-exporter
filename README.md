@@ -8,13 +8,6 @@ Ferramenta simples para exportar, por empresa, apenas os dados necessários do T
 
 A exportação gera um arquivo `.tar.gz` contendo os três arquivos CSV, filtrados exclusivamente pelo `companyId` informado.
 
-A `companyId` 1 não é incluída automaticamente. Somente serão exportados os dados da empresa informada no comando.
-
-## Requisitos
-
-- Ticketz instalado e em execução via Docker
-- Docker instalado
-- Acesso ao servidor do Ticketz
 
 ## Instalação
 
@@ -38,25 +31,14 @@ Execute informando o `companyId` desejado:
 ```bash
 sudo ./exportar-ticketz-company.sh 109
 ```
+Substitua `109` pelo ID da empresa que deseja exportar
 
-Substitua `109` pelo ID da empresa que deseja exportar:
-
-```bash
-sudo ./exportar-ticketz-company.sh 263
-```
-
-Para exportar a empresa 1, informe explicitamente:
-
-```bash
-sudo ./exportar-ticketz-company.sh 1
-```
 
 ## Pasta de destino opcional
 
 Por padrão, o arquivo `.tar.gz` é criado na pasta atual. Para escolher outra pasta:
 
 ```bash
-mkdir -p ~/exportacoes-ticketz
 sudo ./exportar-ticketz-company.sh 109 ~/exportacoes-ticketz
 ```
 
@@ -86,8 +68,7 @@ tar -tzf ticketz-export-109-*.tar.gz
 Para extrair os CSVs:
 
 ```bash
-mkdir -p exportacao-extraida
-tar -xzf ticketz-export-109-*.tar.gz -C exportacao-extraida
+tar -xzf ticketz-export-109-*.tar.gz
 ```
 
 ## Observações
